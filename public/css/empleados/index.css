@@ -1,0 +1,23 @@
+body{
+    background: rgb(72,220,233);
+    background: linear-gradient(90deg, rgba(72,220,233,1) 0%, rgba(17,154,138,1) 0%, rgba(2,215,189,1) 77%, rgba(0,255,246,1) 100%); 
+}
+table {
+    counter-reset: tableCount;    
+}
+.counterCell:before {              
+    content: counter(tableCount); 
+    counter-increment: tableCount; 
+}
+
+#titulo{
+    text-align: center;
+}
+#boton{
+    border-radius: 7px;
+    background-color: orange;
+}
+#boton:hover{
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+}

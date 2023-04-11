@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/empleados/crear.css" />
     <title>crear empleados</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
   </head>
@@ -14,7 +15,7 @@
     
     <form action="{{route('empleados.store')}}" method="post" enctype="multipart/form-data">
         @csrf
-        <legend>creacion de empleado</legend>
+        <legend id="titulo">creacion de empleado</legend>
         <div class="mb-3">
           <label for="disabledSelect" class="form-label">nombre</label>
           <input name="nombre" type="text"  class="form-control"  placeholder="ingrese un nombre">

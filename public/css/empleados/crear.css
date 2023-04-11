@@ -1,0 +1,7 @@
+body{
+    background: rgb(72,220,233);
+    background: linear-gradient(90deg, rgba(72,220,233,1) 0%, rgba(17,154,138,1) 0%, rgba(2,215,189,1) 77%, rgba(0,255,246,1) 100%); 
+}
+#titulo{
+    text-align: center;
+}

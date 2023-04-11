@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdministradorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmpleadoController;
 
@@ -26,3 +27,5 @@ Route::get('/empleados/crear', [EmpleadoController::class, 'create']);
 */
 /* esto crea una ruta para usar todos los metodos de la clase empleado controller*/
 Route::resource('empleados', EmpleadoController::class);
+
+/*Route::resource('empleados', AdministradorController::class);*/
