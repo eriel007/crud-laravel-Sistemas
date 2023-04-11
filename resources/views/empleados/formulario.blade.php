@@ -1,0 +1,1 @@
+formulario que tendra datos en comun con crear y editar

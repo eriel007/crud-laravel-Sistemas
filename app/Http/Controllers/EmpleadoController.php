@@ -12,7 +12,7 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        //
+        return view('empleados.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
-        //
+        return view('empleados.crear');
     }
 
     /**
@@ -28,7 +28,15 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /*$DatosEmpleado = request()->all();*/
+        $DatosEmpleado = request()->except('_token');
+        empleado::insert($DatosEmpleado);
+
+        /* para q la foto no sea temporal en la DB*/
+        if ($request->hasFile('foto')) {
+            $DatosEmpleado['foto'] = $request->file('foto')->store('uploads', 'public');
+        }
+        return response()->json($DatosEmpleado);
     }
 
     /**
