@@ -33,7 +33,10 @@
                 <td>{{$empleado->apellidoP}}</td>
                 <td>{{$empleado->apellidoM}}</td>
                 <td>{{$empleado->sueldo}}</td>
-                <td>editar|
+                <td>
+                    <a href="{{route('empleados.edit',$empleado->id)}}">
+                        <button id="boton">editar</button>
+                    </a>
                     <form action="{{route('empleados.destroy',$empleado->id)}}" method="POST">
                         @csrf
                         {{method_field('DELETE')}}
