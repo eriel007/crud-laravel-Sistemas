@@ -13,7 +13,7 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        $datos['empleados'] = empleado::paginate(5);
+        $datos['empleados'] = empleado::paginate(7);
         return view('empleados.index', $datos);
     }
 
@@ -38,7 +38,8 @@ class EmpleadoController extends Controller
         if ($request->hasFile('foto')) {
             $DatosEmpleado['foto'] = $request->file('foto')->store('uploads', 'public');
         }
-        return response()->json($DatosEmpleado);
+        /*return response()->json($DatosEmpleado);*/
+        return redirect('empleados');
     }
 
     /**
@@ -78,6 +79,10 @@ class EmpleadoController extends Controller
      */
     public function destroy($id)
     {
+        $empleado = empleado::findOrfail($id);
+        if (Storage::delete('app/public/uploads' . $empleado->foto)) {
+            empleado::destroy($id);
+        }
         empleado::destroy($id);
         return redirect('empleados');
     }

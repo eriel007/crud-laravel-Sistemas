@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdministradorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmpleadoController;
+use GuzzleHttp\Middleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +16,11 @@ use App\Http\Controllers\EmpleadoController;
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
+
 /*
 Route::get('/empleados', function () {
     return view('empleados.index');
@@ -26,6 +29,17 @@ Route::get('/empleados', function () {
 Route::get('/empleados/crear', [EmpleadoController::class, 'create']);
 */
 /* esto crea una ruta para usar todos los metodos de la clase empleado controller*/
-Route::resource('empleados', EmpleadoController::class);
+
+Route::resource('empleados', EmpleadoController::class)->middleware('auth');
 
 /*Route::resource('empleados', AdministradorController::class);*/
+
+//ayuda a que desaparesca el registrar y olvidar contrasena
+Auth::routes(['register' => false, 'reset' => false]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['Middleware' => 'auth'], function () {
+    // Route::get('/', [EmpleadoController::class, 'index'])->name('home');
+    Route::get('/home', [EmpleadoController::class, 'index'])->name('home');
+});

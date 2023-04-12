@@ -11,7 +11,8 @@ formulario para editar cada empleadosformulario que tendra datos en comun con cr
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
   </head>
   <body class="p-3 m-0 border-0 bd-example">
-    
+    @extends('layouts.app')
+    @section('content')
     <form action="{{route('empleados.update',$empleado->id)}}" method="post" enctype="multipart/form-data">
         @csrf
         {{method_field('PATCH')}}
@@ -38,7 +39,7 @@ formulario para editar cada empleadosformulario que tendra datos en comun con cr
         </div>
         <button type="submit" class="btn btn-primary">guardar</button>
     </form>
-    
+    @endsection
     <!-- End Example Code -->
   </body>
 </html>

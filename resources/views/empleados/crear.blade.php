@@ -12,7 +12,8 @@
   <body class="p-3 m-0 border-0 bd-example">
 
     <!-- Example Code -->
-    
+    @extends('layouts.app')
+    @section('content')
     <form action="{{route('empleados.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <legend id="titulo">creacion de empleado</legend>
@@ -38,6 +39,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+    @endsection
     
     <!-- End Example Code -->
   </body>
