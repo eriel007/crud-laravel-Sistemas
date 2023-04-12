@@ -28,7 +28,7 @@
             @foreach ($empleados as $empleado)
               <tr>
                 <td class="counterCell"></td>
-                <td><img src="{{$empleado->foto}}"></td>
+                <td><img src="{{asset('storage').'/'.$empleado->foto}}"></td>
                 <td>{{$empleado->nombre}}</td>
                 <td>{{$empleado->apellidoP}}</td>
                 <td>{{$empleado->apellidoM}}</td>

@@ -5,6 +5,10 @@ body{
 table {
     counter-reset: tableCount;    
 }
+img{
+    height: 25px;
+    width: 25px;
+}
 .counterCell:before {              
     content: counter(tableCount); 
     counter-increment: tableCount; 
